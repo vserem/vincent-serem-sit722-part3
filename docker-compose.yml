@@ -1,0 +1,22 @@
+version: "3"
+services:
+  book-catalog:
+    build:
+      context: ./book_catalog
+      dockerfile: Dockerfile
+    image: video-streaming
+    container_name: video_streaming
+    ports:
+      - 8001:8001
+    environment:
+      - DATABASE_URL=postgresql://sit722_15g3_user:VS9q7i2ulpfI3mx3l2Er7bpQi2i9pWuV@dpg-crm4tk88fa8c73a1vnp0-a.oregon-postgres.render.com/sit722_15g3
+  inventory:
+    build:
+      context: ./inventory_management
+      dockerfile: Dockerfile
+    image: inventory-management
+    container_name: inventory_management
+    ports:
+      - 8002:8002
+    environment:
+      - DATABASE_URL=postgresql://sit722_15g3_user:VS9q7i2ulpfI3mx3l2Er7bpQi2i9pWuV@dpg-crm4tk88fa8c73a1vnp0-a.oregon-postgres.render.com/sit722_15g3
